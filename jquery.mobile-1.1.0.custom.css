@@ -1,0 +1,91 @@
+/*!
+* jQuery Mobile Framework
+* Copyright (c) jQuery Project
+* Dual licensed under the MIT (MIT-LICENSE.txt) and GPL (GPL-LICENSE.txt) licenses.
+* http://jquery.org/license
+*/
+
+/* 
+ * Custom generated themes for jQuery Mobile
+ */
+/* f
+-----------------------------------------------------------------------------------------------------------*/
+
+.ui-bar-f {
+  border: 1px solid 		#326407;
+	background: 			#397208;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#4A910C), to(#397208)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(top, #4A910C, #397208); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient(top, #4A910C, #397208); /* FF3.6 */
+	background-image:     -ms-linear-gradient(top, #4A910C, #397208); /* IE10 */
+	background-image:      -o-linear-gradient(top, #4A910C, #397208); /* Opera 11.10+ */
+	background-image:         linear-gradient(top, #4A910C, #397208);
+}
+.ui-bar-f, 
+.ui-bar-f input, 
+.ui-bar-f select, 
+.ui-bar-f textarea, 
+.ui-bar-f button {
+	font-family: Helvetica, Arial, sans-serif;
+}
+.ui-bar-f .ui-link {
+	font-weight: bold;
+}
+.ui-body-f,
+.ui-overlay-f {
+	background: 			#85DA3B;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#62B731), to(#85DA3B)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(top, #62B731, #85DA3B); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient(top, #62B731, #85DA3B); /* FF3.6 */
+	background-image:     -ms-linear-gradient(top, #62B731, #85DA3B); /* IE10 */
+	background-image:      -o-linear-gradient(top, #62B731, #85DA3B); /* Opera 11.10+ */
+	background-image:         linear-gradient(top, #62B731, #85DA3B);
+}
+.ui-overlay-f {
+	background-image: none;
+	border-width: 0;
+}
+.ui-body-f,
+.ui-body-f input,
+.ui-body-f select,
+.ui-body-f textarea,
+.ui-body-f button {
+	font-family: Helvetica, Arial, sans-serif;
+}
+.ui-body-f .ui-link {
+	color: 					#2489CE;
+	font-weight: bold;
+}
+.ui-btn-up-f {
+	background: 			#477321;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#5B9529), to(#477321)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(top, #5B9529, #477321); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient(top, #5B9529, #477321); /* FF3.6 */
+	background-image:     -ms-linear-gradient(top, #5B9529, #477321); /* IE10 */
+	background-image:      -o-linear-gradient(top, #5B9529, #477321); /* Opera 11.10+ */
+	background-image:         linear-gradient(top, #5B9529, #477321);
+}
+.ui-btn-hover-f {
+	background: 			#4E7D25;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#5D9829), to(#4E7D25)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(top, #5D9829, #4E7D25); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient(top, #5D9829, #4E7D25); /* FF3.6 */
+	background-image:     -ms-linear-gradient(top, #5D9829, #4E7D25); /* IE10 */
+	background-image:      -o-linear-gradient(top, #5D9829, #4E7D25); /* Opera 11.10+ */
+	background-image:         linear-gradient(top, #5D9829, #4E7D25);
+}
+.ui-btn-down-f {
+	background: 			#397208;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#4A910C), to(#397208)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(top, #4A910C, #397208); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient(top, #4A910C, #397208); /* FF3.6 */
+	background-image:     -ms-linear-gradient(top, #4A910C, #397208); /* IE10 */
+	background-image:      -o-linear-gradient(top, #4A910C, #397208); /* Opera 11.10+ */
+	background-image:         linear-gradient(top, #4A910C, #397208);
+}
+.ui-btn-up-f,
+.ui-btn-hover-f,
+.ui-btn-down-f {
+	font-family: Helvetica, Arial, sans-serif;
+	text-decoration: none;
+}
