@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!-- Application from Alan Meile -->
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css">
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+<link rel="stylesheet" href="jquery.mobile-1.1.0.custom.css?" />
+</head>
+
+<script type="text/javascript">
+$(document).delegate('#Tasklist','pageinit', function() {
+    // Initialisierung
+    Task.init();
+	Task.setTitle();
+	Task.drawList();
+	
+	// Titel ändern
+	$('#mytitle').bind('click', function() {
+		$('#popupTitle').popup( "open" );
+	});
+	
+	$('#setTitle').bind('click', function() {
+		Task.changeTitle( $('#new_title').val() );
+		$('#new_title').val('');
+		Task.setTitle();
+	});
+	
+	// Task hinzufügen
+	$('#addTask').bind('click', function() {
+		if ( $('#task').val() != '' ) {
+			Task.addData( $('#task').val() );
+			$('#task').val('');
+			Task.drawList();
+		}
+	});
+	
+	// Task löschen popup rufen
+	$('#tasklist').on('click', 'li', function() {
+		$('#task_name').text( $(this).text() );
+		$('#popupDel').popup( "open" );
+	});
+	
+	// Task löschen
+	$('#del_task').bind('click', function() {
+		console.log('deleting');
+		Task.delData( $('#task_name').text() );
+		Task.drawList();
+	});
+});
+
+Task = {};
+Task.Title = '';
+Task.List = "[]";
+
+Task.init = function() {
+	if (!localStorage.tasktitle) {
+		localStorage.tasktitle = '';
+	}
+	if (!localStorage.tasklist) {
+		localStorage.tasklist = '[]';
+	}
+};
+
+Task.changeTitle =  function(pTitle) {
+	localStorage.tasktitle = pTitle;
+};
+
+Task.setTitle = function() {
+	Task.Title = localStorage.tasktitle;
+	
+	if ( Task.Title != '' )
+		$('#title').text(Task.Title);
+};
+
+Task.getData = function() {
+	Task.List = JSON.parse(localStorage.tasklist);
+};
+
+Task.addData = function(pValue) {
+	if (pValue != '')
+		Task.List[Task.List.length] = pValue;
+	localStorage.tasklist = JSON.stringify(Task.List || []);
+};
+
+Task.delData = function(pValue) {
+	// 1 Item aus dem Array löschen
+	console.log(pValue);
+	Task.List = jQuery.grep(Task.List, function(value) {
+		return $.trim(value) != $.trim(pValue);
+	});
+	
+	console.log( Task.List );
+	
+	// Neues Array lokal speichern
+	Task.addData('');
+};
+
+Task.drawList = function() {	
+	// Liste leeren
+	$('#tasklist').empty();
+	
+	// Tasks hinzufügen
+	Task.getData();
+	console.log( Task.List );
+	$.each(Task.List, function(Index, Item) {
+		$('#tasklist').append('<li data-icon="delete"><a class="task_item" href="#">'+Item+'</a></li>');
+	});
+	
+	// Neu Zeichnen
+	$('#tasklist').listview('refresh');
+};
+</script>
+
+<body>
+
+<div id="Tasklist" data-url="Tasklist" data-role="page" data-theme="a">
+<div id="mytitle" data-role="header">
+<h1 id="title">Click me!</h1>
+</div>	
+	<div data-role="content">
+		<div id="popupTitle" data-role="popup">
+			<div style="padding:10px 20px;">
+				<input type="text" placeholder="title" id="new_title">
+				
+				<a href="#" id="setTitle" data-rel="back" data-role="button" data-icon="check">Change</a>
+			</div>
+		</div>
+		
+		<div id="popupTask" data-role="popup">
+			<div style="padding:10px 20px;">
+				<input type="text" placeholder="task" id="task">
+				
+				<a href="#" id="addTask" data-rel="back" data-role="button" data-icon="check">Add Task</a>
+			</div>
+		</div>
+
+		<div id="popupDel" data-role="popup">
+			<div style="padding:10px 20px;">
+				<p id="task_name">Task Name</p>
+				<a href="#" id="del_task" data-rel="back" data-role="button" data-icon="delete">delete</a>
+			</div>
+		</div>
+
+		<a href="#popupTask" data-rel="popup" data-role="button" data-icon="plus">New Task</a>
+
+		<ul id="tasklist" data-role="listview" data-inset="true" data-theme="f">
+		</ul>
+	</div>
+</div>
+
+</body>
+</html>
